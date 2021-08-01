@@ -1,0 +1,23 @@
+{
+  "name": "Blockchain-SHA256",
+  "version": "1.0.0",
+  "description": "Blockchain test Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshay-na/Blockchain-SHA256.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akshay-na/Blockchain-SHA256/issues"
+  },
+  "homepage": "https://github.com/akshay-na/Blockchain-SHA256#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
