@@ -19,5 +19,8 @@
   "homepage": "https://github.com/akshay-na/Blockchain-SHA256#readme",
   "devDependencies": {
     "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "crypto-js": "^4.1.1"
   }
 }
