@@ -1,1 +1,3 @@
-const Block = require('../src/block');
+const Block = require('./src/block');
+
+console.log(Block.genesis().toString());
