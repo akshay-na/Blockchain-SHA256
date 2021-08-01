@@ -1,3 +1,4 @@
-const DIFFICULTY = 5;
+const DIFFICULTY = 3;
+const MINE_RATE = 10000;
 
-module.exports = { DIFFICULTY };
+module.exports = { DIFFICULTY, MINE_RATE };

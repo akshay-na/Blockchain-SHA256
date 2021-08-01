@@ -1,3 +1,7 @@
-const Block = require('./src/block');
+const Blockchain = require('./blockchain');
 
-console.log(Block.genesis().toString());
+bc = new Blockchain();
+
+for (let i = 0; i < 10; i++) {
+	console.log(bc.addBlock(`foo ${i}`).toString());
+}
