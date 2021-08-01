@@ -18,15 +18,38 @@ class P2pServer {
 		console.log(`Listening for peer-to-peer connections on: ${P2P_PORT}`);
 	}
 
-	connectSocket() {
-		this.sockets.push(socket);
-		console.log('Socket connected');
-	}
-
 	connectToPeers() {
 		peers.forEach((peer) => {
 			const socket = new Websocket(peer);
 			socket.on('open', () => this.connectSocket(socket));
+		});
+	}
+
+	connectSocket(socket) {
+		this.sockets.push(socket);
+		console.log('Socket connected');
+
+		this.messageHandler(socket);
+
+		this.sendChain(socket);
+	}
+
+	messageHandler(socket) {
+		socket.on('message', (message) => {
+			const data = JSON.parse(message);
+			console.log('data', data);
+
+			this.blockchain.replaceChain(data);
+		});
+	}
+
+	sendChain(socket) {
+		socket.send(JSON.stringify(this.blockchain.chain));
+	}
+
+	syncChain() {
+		this.sockets.forEach((socket) => {
+			this.sendChain(socket);
 		});
 	}
 }
