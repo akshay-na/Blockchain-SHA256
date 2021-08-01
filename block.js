@@ -1,7 +1,9 @@
+const SHA256 = require('crypto-js/sha256');
+
 class Block {
-	constructor(timestamp, previousHash, hash, data) {
+	constructor(timestamp, lastHash, hash, data) {
 		this.timestamp = timestamp;
-		this.previousHash = previousHash;
+		this.lastHash = lastHash;
 		this.hash = hash;
 		this.data = data;
 	}
@@ -9,7 +11,7 @@ class Block {
 	toString() {
 		return `Block -
       Timestamp: ${this.timestamp},
-      Last Hash: ${this.previousHash.substring(0, 10)},
+      Last Hash: ${this.lastHash.substring(0, 10)},
       Hash     : ${this.hash.substring(0, 10)},
       Data     : ${this.data}
     `;
@@ -22,11 +24,15 @@ class Block {
 
 	// Minable new Block
 	static mineBlock(lastBlock, data) {
-		const timestamp = Data.now();
+		const timestamp = Date.now();
 		const lastHash = lastBlock.hash;
-		const hash = 'todo-hash';
+		const hash = Block.hash(timestamp, lastHash, data);
 
 		return new this(timestamp, lastHash, hash, data);
+	}
+
+	static hash(timestamp, lastHash, data) {
+		return SHA256(`${timestamp}${lastHash}${data}`).toString();
 	}
 }
 
