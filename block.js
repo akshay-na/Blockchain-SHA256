@@ -19,7 +19,9 @@ class Block {
 
 	// Origin Block (1st Block)
 	static genesis() {
-		return new this('Genesis Time', '-----', 'f1r57-h45h', []);
+		return new this('Genesis Time', '-----', 'f1r57-h45h', [
+			'A Genesis Block is the name given to the first block a cryptocurrency, such as Bitcoin, ever mined.'
+		]);
 	}
 
 	// Minable new Block
