@@ -13,6 +13,9 @@
     "type": "git",
     "url": "git+https://github.com/akshay-na/Blockchain-SHA256.git"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -29,6 +32,7 @@
     "crypto-js": "^4.1.1",
     "elliptic": "^6.5.4",
     "express": "^4.17.1",
+    "uuid": "^8.3.2",
     "ws": "^8.0.0"
   }
 }
