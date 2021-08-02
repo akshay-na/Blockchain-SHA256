@@ -43,6 +43,21 @@ class Transaction {
 			ChainUtil.hash(transaction.outputs)
 		);
 	}
+
+	update(sendersWallet, recipient, amount) {
+		const senderOutputs = this.outputs.find((output) => output.address === sendersWallet.publicKey);
+
+		if (amount > senderOutputs.amount) {
+			console.log(`Amount: ${amount} exceeds balance`);
+			return;
+		}
+
+		senderOutputs.amount = senderOutputs.amount - amount;
+		this.outputs.push({ amount, address: recipient });
+
+		Transaction.signTransaction(this, sendersWallet);
+		return this;
+	}
 }
 
 module.exports = Transaction;
